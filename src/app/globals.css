@@ -1,0 +1,246 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-plus-jakarta);
+
+  /* ─── Brand: Golden Sport ────────────────────────────── */
+  --color-primary:         #E8420A;
+  --color-primary-hover:   #C93408;
+  --color-primary-light:   #FFF0EB;
+  --color-primary-dark:    #A02A06;
+  --color-primary-muted:   #F9A98A;
+
+  --color-accent:          #F5C518;
+  --color-accent-hover:    #DBA90E;
+  --color-accent-light:    #FFFBEB;
+  --color-accent-muted:    #FAE07A;
+
+  /* ─── Surface & Background (Dark) ───────────────────── */
+  --color-background:      #0D0D0D;
+  --color-surface:         #1A1A1A;
+  --color-surface-raised:  #222222;
+  --color-surface-overlay: #2A2A2A;
+  --color-border:          #2E2E2E;
+  --color-border-subtle:   #1E1E1E;
+
+  /* ─── Text ───────────────────────────────────────────── */
+  --color-foreground:      #F5F5F5;
+  --color-text-secondary:  #A0A0A0;
+  --color-text-muted:      #6B6B6B;
+  --color-text-disabled:   #3D3D3D;
+
+  /* ─── Semantic ───────────────────────────────────────── */
+  --color-success:         #22C55E;
+  --color-warning:         #F5C518;
+  --color-danger:          #EF4444;
+  --color-info:            #3B82F6;
+
+  /* ─── Breakpoints ────────────────────────────────────── */
+  --breakpoint-xs:  390px;
+  --breakpoint-sm:  480px;
+  --breakpoint-md:  768px;
+  --breakpoint-lg:  1024px;
+  --breakpoint-xl:  1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/* ─── Base ───────────────────────────────────────────────── */
+:root {
+  --background: #0D0D0D;
+  --foreground: #F5F5F5;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+button, a, [role="button"] {
+  cursor: pointer;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Prevent mobile browser auto-zoom on input focus */
+input, textarea, select {
+  font-size: 16px;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 6px; height: 6px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: #2E2E2E; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #3D3D3D; }
+
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ─── Keyframes ──────────────────────────────────────────── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-spin  { animation: spin 0.7s linear infinite; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+
+/* ─── Scroll-triggered reveal ────────────────────────────── */
+/*
+  Pakai class [reveal] pada elemen.
+  Tambah modifier untuk arah: [reveal-left] [reveal-right] [reveal-scale]
+  Tambah delay: [reveal-delay-1] sampai [reveal-delay-5]
+  JS IntersectionObserver menambah class .is-visible untuk trigger animasi.
+*/
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+[data-reveal="left"] {
+  transform: translateX(-32px);
+}
+
+[data-reveal="right"] {
+  transform: translateX(32px);
+}
+
+[data-reveal="scale"] {
+  transform: scale(0.94);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+[data-delay="1"] { transition-delay: 0.08s; }
+[data-delay="2"] { transition-delay: 0.16s; }
+[data-delay="3"] { transition-delay: 0.24s; }
+[data-delay="4"] { transition-delay: 0.32s; }
+[data-delay="5"] { transition-delay: 0.40s; }
+
+/* ─── Page container ─────────────────────────────────────── */
+.page-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ─── Gradient text ──────────────────────────────────────── */
+.text-gradient-primary {
+  background: linear-gradient(135deg, #E8420A 0%, #F5C518 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-accent {
+  background: linear-gradient(135deg, #F5C518 0%, #E8420A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Glow effects ───────────────────────────────────────── */
+.glow-primary {
+  box-shadow: 0 0 30px rgba(232, 66, 10, 0.35);
+}
+
+.glow-accent {
+  box-shadow: 0 0 30px rgba(245, 197, 24, 0.35);
+}
+
+/* ─── Button interactions ────────────────────────────────── */
+@layer utilities {
+  .btn-primary {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+  }
+  .btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+    box-shadow: 0 12px 32px rgba(232, 66, 10, 0.45) !important;
+  }
+  .btn-primary:active:not(:disabled) {
+    transform: translateY(0) scale(0.97);
+    filter: brightness(0.97);
+    box-shadow: 0 4px 12px rgba(232, 66, 10, 0.25) !important;
+    transition-duration: 0.08s;
+  }
+
+  .btn-accent {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+  }
+  .btn-accent:hover:not(:disabled) {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+    box-shadow: 0 12px 32px rgba(245, 197, 24, 0.45) !important;
+  }
+  .btn-accent:active:not(:disabled) {
+    transform: translateY(0) scale(0.97);
+    transition-duration: 0.08s;
+  }
+
+  .btn-ghost {
+    position: relative;
+    transition: opacity 0.18s ease;
+    display: inline-flex;
+    align-items: center;
+  }
+  .btn-ghost:hover  { opacity: 0.65; }
+  .btn-ghost:active { opacity: 0.45; transition-duration: 0.08s; }
+
+  .btn-outline {
+    transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+  }
+  .btn-outline:hover:not(:disabled) {
+    background: rgba(232, 66, 10, 0.08);
+    border-color: #E8420A;
+    transform: translateY(-1px);
+  }
+  .btn-outline:active:not(:disabled) {
+    transform: scale(0.97);
+    transition-duration: 0.08s;
+  }
+
+  .btn-danger {
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .btn-danger:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(239, 68, 68, 0.35) !important;
+  }
+  .btn-danger:active:not(:disabled) {
+    transform: scale(0.97);
+    transition-duration: 0.08s;
+  }
+}
