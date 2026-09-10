@@ -97,7 +97,7 @@ function LeftPanel({ heading, subheading, children }: {
         </div>
 
         <p className="text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>
-          © 2026 Kavio · Platform Distribusi Properti B2B
+          © 2025 Golden Sport · Platform Manajemen Keanggotaan
         </p>
       </div>
     </div>
@@ -160,7 +160,7 @@ function RightPanel({ title, subtitle, footerNote, children }: {
           <span className="underline cursor-pointer hover:text-slate-500 transition-colors">Syarat & Ketentuan</span>
           {" "}dan{" "}
           <span className="underline cursor-pointer hover:text-slate-500 transition-colors">Kebijakan Privasi</span>
-          {" "}Kavio.
+          {" "}Golden Sport.
         </p>
       </div>
     </div>

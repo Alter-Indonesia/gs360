@@ -1,4 +1,4 @@
-export const metadata = { title: "Detail Properti — Kavio" };
+export const metadata = { title: "Detail Manajemen — Golden Sport" };
 
 export default async function ListingDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

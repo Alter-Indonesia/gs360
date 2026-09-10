@@ -1,6 +1,6 @@
 import { ConsolehubLoginForm } from "./_components/consolehub-login-form";
 
-export const metadata = { title: "Consolehub — Kavio" };
+export const metadata = { title: "Consolehub — Golden Sport" };
 
 export default function ConsolehubLoginPage() {
   return (
@@ -46,7 +46,7 @@ export default function ConsolehubLoginPage() {
           <div className="mb-6">
             <h1 className="text-xl font-bold mb-1 text-white">Owner Login</h1>
             <p className="text-sm" style={{ color: "#475569" }}>
-              Akses terbatas untuk Owner Platform Kavio
+              Akses terbatas untuk Owner Platform Golden Sport
             </p>
           </div>
 
@@ -54,7 +54,7 @@ export default function ConsolehubLoginPage() {
         </div>
 
         <p className="text-center text-xs mt-6" style={{ color: "#334155" }}>
-          © 2026 Kavio Platform
+          © 2026 Golden Sport Platform
         </p>
       </div>
     </div>

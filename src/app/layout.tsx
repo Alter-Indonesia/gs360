@@ -9,8 +9,8 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Kavio",
-  description: "Platform distribusi properti B2B",
+  title: "Golden Sport — Gym & Fitness Premium",
+  description: "Platform manajemen keanggotaan gym Golden Sport. Daftar, kelola, dan pantau progress fitness kamu.",
 };
 
 export default function RootLayout({

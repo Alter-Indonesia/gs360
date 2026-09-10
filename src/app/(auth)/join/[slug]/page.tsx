@@ -1,6 +1,6 @@
 import { JoinAgentForm } from "./_components/join-agent-form";
 
-export const metadata = { title: "Bergabung sebagai Agent — Kavio" };
+export const metadata = { title: "Bergabung sebagai Agent — Golden Sport" };
 
 export default async function JoinAgentPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

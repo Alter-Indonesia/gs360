@@ -4,7 +4,7 @@ import { StatCard } from "@/components/ui/stat-card";
 import { createStatusBadge } from "@/components/ui/status-badge";
 import { IconBadge } from "@/components/ui/icon-badge";
 
-export const metadata = { title: "Overview — Kavio" };
+export const metadata = { title: "Overview — Golden Sport" };
 
 const STATS_ROW1 = [
   {
